@@ -159,6 +159,7 @@ function checkPalindrome(str) {
 }
 
 // I found exercise 7 quite tricky. This works but I need to spend more time understanding how it all works.
+// making a change
 
 console.log('Exercise 7 Result:', checkPalindrome("radar"));
 
