@@ -55,7 +55,7 @@ Exercise 5
 Solve Exercise 5 here:
 */
 
-game.party.push(pokemon[1], pokemon[2], pokemon[3]);
+game.party.push(pokemon[100], pokemon[75], pokemon[30]);
 
 //['Pikachu', 'Mewtwo', 'Ninetales', 'Machamp'];
 
@@ -75,3 +75,18 @@ Solve Exercise 6 here:
         return b.hp - a.hp
     });
     console.log(game.party);
+
+    /*
+Exercise 7
+1. Set the `completed` property to true for gyms with a difficulty below 3.
+2. Think about how you'd loop through the `gyms` array to check and update the `completed` property.
+
+
+Solve Exercise 7 here:
+*/
+
+game.gyms.forEach(gym => {
+    if (gym.difficulty < 3) {
+        gym.completed = true;
+    }
+});
