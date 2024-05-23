@@ -110,3 +110,19 @@ Solve Exercise 8 here:
 game.party.splice(0, 4, pokemon[1], pokemon[4], pokemon[7], pokemon[25]);
 
 console.log(game.party);
+
+/*
+Exercise 9
+1. Print the name of each Pokémon in your party.
+2. Consider using a loop or an array method to access each Pokémon's name.
+
+Solve Exercise 9 here:
+*/
+
+game.party = ['Ivysaur', 'Charmleon', 'Wartortle', 'Raichu'];
+
+console.log(game.party);
+
+// This may be way too dumb a solution? 
+//Like it works but I assume there is a far more efficient way to do this...
+
