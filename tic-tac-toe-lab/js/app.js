@@ -42,13 +42,24 @@ const resultDisplayElement = document.querySelector('#message');
 function init () {
     console.log('Game started');
     //board = ["", "X", "", "O", "", "", "", "", ""];
-    // squareElement.forEach(square => square.addEventListener('click', watchForClick));
 }
 
 function render () {
     console.log('Render function');
     updateBoard();
     updateMessage();
+}
+
+function handleClick(event) {
+    const squareIndex = event.target.dataset.index;
+    if (board === 'X' || 'O') {
+        return;
+    }   if (winner === true) 
+     return;
+}
+
+function placePiece (index) {
+    
 }
 
 function updateBoard() {
@@ -75,5 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // updateMessage();
 })
 
+squareElement.forEach(square => square.addEventListener('click', handleClick));
 
 
