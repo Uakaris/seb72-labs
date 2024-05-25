@@ -24,14 +24,13 @@ let turn;
 let winner;
 let tie;
 
-board = ["", "", "", "", "", "", "", "", ""];
-turn = "X";
-winner = false;
-tie = false;
+
 /*------------------------ Cached Element References ------------------------*/
 
 const squareElement = document.querySelectorAll('.sqr');
 const resultDisplayElement = document.querySelector('#message');
+const boardElement = document.querySelector('.board');
+const resetButtonElement = document.querySelector('.reset');
 /*-------------------------------- Functions --------------------------------*/
 
 // const sample = (array) => {
@@ -40,7 +39,12 @@ const resultDisplayElement = document.querySelector('#message');
 // };
 
 function init () {
+    board = ["", "", "", "", "", "", "", "", ""];
+    turn = "X";
+    winner = false;
+    tie = false;
     console.log('Game started');
+    // console.log(winningCombos[0]);
     //board = ["", "X", "", "O", "", "", "", "", ""];
 }
 
@@ -51,15 +55,71 @@ function render () {
 }
 
 function handleClick(event) {
-    const squareIndex = event.target.dataset.index;
-    if (board === 'X' || 'O') {
-        return;
-    }   if (winner === true) 
-     return;
+    if (!winner) {
+        const squareIndex = event.target.id;
+        // console.log(squareIndex);
+        const squareValue = board[squareIndex];
+        if (squareValue) {
+            alert("The selected square is already filled.")
+            return;
+        } 
+        placePiece(squareIndex);
+        checkForWinner();
+        checkForTie();
+        switchPlayerTurn();
+        render();
+    } 
 }
 
 function placePiece (index) {
-    
+    board[index] = turn;
+    console.log([board]);
+}
+
+function checkForWinner() {
+    winningCombos.forEach((combo) => {
+        const [index1, index2, index3] = combo;
+        const valueA = board[index1];
+        const valueB = board[index2];
+        const valueC = board[index3];
+        
+        // Check if all three values are the same and not empty
+        if (valueA !== "" && valueA === valueB && valueB === valueC) {
+            // We have a winner
+            winner = true;
+            console.log(`Player ${valueA} wins!`);
+        }
+        // Need to work on my understanding of this function
+        // combo[0]
+        // combo[1]
+        // comob[2]
+        
+    });
+}
+
+function checkForTie() {
+    if (winner) {
+        return;
+    }
+    if (board.includes('')) {
+        tie = false;
+    } else {
+        tie = true;
+    }
+    console.log('Tie:', tie);
+}
+
+function switchPlayerTurn() {
+    if (winner) {
+        return;
+    }
+    turn = (turn === 'X') ? 'O' : 'X';
+    //tunery operator - condensed 'if-else' statement.
+    // (turn === 'X') condition to be evaluated (checks if value of turn is X).
+    // it toggles the value of turn between 'X' and 'O'. 
+    // If turn is 'X', it changes it to 'O'.
+    // If it's anything else (including 'O'), it changes it to 'X'.
+    console.log('Turn', turn);
 }
 
 function updateBoard() {
@@ -78,14 +138,22 @@ function updateMessage(){
         console.log(`The winner is ${turn}`);
     }
 }
+
+function reset() {
+    init();
+    render();
+}
 /*----------------------------- Event Listeners -----------------------------*/
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     //init(board = ["", "X", "", "O", "X", "", "", "X", ""]);
     //render();
     // updateBoard();
     // updateMessage();
+    init();
 })
 
-squareElement.forEach(square => square.addEventListener('click', handleClick));
+boardElement.addEventListener('click', handleClick);
 
+resetButtonElement.addEventListener('click', reset);
 
+//script not working. Need to fix reset function as well as updateMessage function.
