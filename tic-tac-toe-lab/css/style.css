@@ -1,0 +1,56 @@
+body {
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.815), rgba(255, 128, 0, 0.827), rgba(255, 166, 0, 0.923));
+    /* Use a system font, if none are available use an available sans-sarif */
+    /* font-family: system-ui, sans-serif; */
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 21px;
+    /* margin: 0; */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+  }
+
+  h1 {
+    text-align: center;
+    color: gainsboro;
+  }
+
+  h2 {
+    text-align: center;
+    color: gainsboro;
+  }
+
+  section {
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 325px;
+    margin: 0 auto;
+    /* background-color: transparent; */
+
+  }
+  
+  .sqr {
+    width: 30%;
+    aspect-ratio: 1/1;
+    border: 3px solid gainsboro;
+    font-size: 64px;
+    background-color: transparent;
+  }
+
+  button:hover {
+    border: 3px solid orange;
+    cursor: pointer;
+  }
+  
