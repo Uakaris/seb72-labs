@@ -2,6 +2,17 @@
 
 // const choices = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
+const winningCombos = [
+    [0, 1, 2], // Horizontal winning combos
+    [3, 4, 5], // Horizontal winning combos
+    [6, 7, 8], // Horizontal winning combos
+    [0, 3, 6], // Vertical winning combos
+    [1, 4, 7], // Vertical winning combos
+    [2, 5, 8], // Vertical winning combos
+    [0, 4, 8], //diagonal winning combos
+    [2, 4, 6], //diagonal winning combos
+];
+
 /*---------------------------- Variables (state) ----------------------------*/
 
 // let playerChoice;
