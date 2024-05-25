@@ -30,17 +30,21 @@ const resultDisplayElement = document.querySelector('#message');
 
 function init () {
     console.log('Game started');
+    //board = ["", "X", "", "O", "", "", "", "", ""];
+    // squareElement.forEach(square => square.addEventListener('click', watchForClick));
 }
 
 function render () {
     console.log('Render function');
+    updateBoard();
+    updateMessage();
 }
 
 function updateBoard() {
 board.forEach((element, index) => {
 console.log(index);
 const squareElement = document.getElementById(index);
-squareElement.textContent = turn;
+squareElement.textContent = element;
 });
 }
 
@@ -54,8 +58,10 @@ function updateMessage(){
 }
 /*----------------------------- Event Listeners -----------------------------*/
 document.addEventListener("DOMContentLoaded", function () {
-    init();
+    //init(board = ["", "X", "", "O", "X", "", "", "X", ""]);
+    //render();
     // updateBoard();
+    // updateMessage();
 })
 
 
