@@ -55,8 +55,21 @@ body {
   button:hover {
     border: 3px solid rgb(255, 140, 0);
     cursor: pointer;
+    
   }
-  
-  .reset {
+
+  #reset button {
     background-color: transparent;
+    color: gainsboro;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    border-color: gainsboro;
+    padding: 5px 20px;
+
+  }
+
+  #reset button:hover {
+    border: 3px solid rgb(255, 140, 0);
   }
