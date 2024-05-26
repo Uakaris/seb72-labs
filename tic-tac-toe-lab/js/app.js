@@ -29,7 +29,7 @@ let tie;
 const squareElement = document.querySelectorAll('.sqr');
 const resultDisplayElement = document.querySelector('#message');
 const boardElement = document.querySelector('.board');
-const resetButtonElement = document.querySelector('.reset');
+const resetButtonElement = document.querySelector('#reset');
 /*-------------------------------- Functions --------------------------------*/
 
 // const sample = (array) => {
@@ -162,12 +162,13 @@ function reset() {
 //     init();
 // })
 
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener('DOMContentLoaded', init);
 
 // squareElement.addEventListener('click',updateMessage);
 
 boardElement.addEventListener('click', handleClick);
 
-resetButtonElement.addEventListener('click', reset, init);
+resetButtonElement.addEventListener('click', reset);
 
+// resetButtonElement.addEventListener("click", init,);
 //script not working. Need to fix reset function as well as updateMessage function.
