@@ -1,5 +1,4 @@
 /*-------------------------------- Constants --------------------------------*/
-
 // const choices = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 const winningCombos = [
@@ -43,13 +42,14 @@ function init () {
     turn = "X";
     winner = false;
     tie = false;
-    console.log('Game started');
+    render();
+    // console.log('Game started');
     // console.log(winningCombos[0]);
     //board = ["", "X", "", "O", "", "", "", "", ""];
 }
 
 function render () {
-    console.log('Render function');
+    // console.log('Render function');
     updateBoard();
     updateMessage();
 }
@@ -68,6 +68,7 @@ function handleClick(event) {
         checkForTie();
         switchPlayerTurn();
         render();
+        
     } 
 }
 
@@ -124,36 +125,49 @@ function switchPlayerTurn() {
 
 function updateBoard() {
 board.forEach((element, index) => {
-console.log(index);
+// console.log(index);
 const squareElement = document.getElementById(index);
 squareElement.textContent = element;
 });
 }
 
+// function updateMessage(){
+//     if (winner === false && tie === false) {
+//         console.log(`Player turn: ${turn}`);
+//     }   else if (winner === false && tie === true) {
+//     }   else {
+//         console.log(`The winner is ${turn}`);
+//     }
+// }
+
 function updateMessage(){
     if (winner === false && tie === false) {
-        console.log(`Player turn: ${turn}`);
+        resultDisplayElement.textContent = `Player turn: ${turn}`;
     }   else if (winner === false && tie === true) {
+        resultDisplayElement.textContent = "It's a tie!";
     }   else {
-        console.log(`The winner is ${turn}`);
+        resultDisplayElement.textContent = `The winner is ${turn}`;
     }
 }
 
 function reset() {
     init();
-    render();
 }
 /*----------------------------- Event Listeners -----------------------------*/
-document.addEventListener("DOMContentLoaded", function() {
-    //init(board = ["", "X", "", "O", "X", "", "", "X", ""]);
-    //render();
-    // updateBoard();
-    // updateMessage();
-    init();
-})
+// document.addEventListener("DOMContentLoaded", init, function() {
+//     //init(board = ["", "X", "", "O", "X", "", "", "X", ""]);
+//     //render();
+//     // updateBoard();
+//     // updateMessage();
+//     init();
+// })
+
+document.addEventListener("DOMContentLoaded", init);
+
+// squareElement.addEventListener('click',updateMessage);
 
 boardElement.addEventListener('click', handleClick);
 
-resetButtonElement.addEventListener('click', reset);
+resetButtonElement.addEventListener('click', reset, init);
 
 //script not working. Need to fix reset function as well as updateMessage function.
