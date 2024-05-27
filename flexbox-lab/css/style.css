@@ -20,7 +20,7 @@
   }
   
   section {
-    height: 400px;
+    height: 500px;
     background-color: black;
     color: white;
     padding: 24px 72px;
@@ -117,6 +117,7 @@
 
 #trending {
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 
