@@ -26,12 +26,13 @@ const sleepButtonElement = document.getElementById('sleep');
 
 const gameMessageElement = document.getElementById('message');
 
-const resetMessageElement = document.getElementById('restart');
+const resetButtonElement = document.getElementById('restart');
 // console.log(resetMessageElement);
 /*-------------------------------- Functions --------------------------------*/
 
 function init() {
-    
+    gameMessageElement.classList.add('hidden')
+    resetButtonElement.classList.add('hidden')
     gameOver = false
     timer = setInterval(runGame, 2000)
     render()
@@ -47,8 +48,8 @@ function runGame() {
 function render() {
     if(gameOver) {
         clearInterval(timer)
-        gameMessageElement.classList.toggle('hidden')
-        resetMessageElement.classList.toggle('hidden')
+        gameMessageElement.classList.remove('hidden')
+        resetButtonElement.classList.remove('hidden')
     }
     boredomStatElement.textContent = state.boredom
     hungerStatElement.textContent = state.hunger
@@ -80,24 +81,13 @@ function playBtnClick() {
     state.sleepiness = 0
     render()
 }
-// updateStates();
-
-// function updateStates() {
-//     state.forEach((element, index) => {
-//         for (const iterator of object) {
-//             state.forEach(element => {
-                
-//             });
-//         }
-//     });
-// }
 /*----------------------------- Event Listeners -----------------------------*/
 
 document.addEventListener('DOMContentLoaded', init);
 
-document.addEventListener(playButtonElement, playBtnClick);
+playButtonElement.addEventListener('click', playBtnClick);
 
-document.addEventListener(resetMessageElement, init);
+resetButtonElement.addEventListener('click', init);
 
-
-
+// Game working but not as I thought it would. 
+// Need to go back over intructions.
