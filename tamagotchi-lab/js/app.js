@@ -27,7 +27,7 @@ const sleepButtonElement = document.getElementById('sleep');
 const gameMessageElement = document.getElementById('message');
 
 const resetMessageElement = document.getElementById('restart');
-console.log(resetMessageElement);
+// console.log(resetMessageElement);
 /*-------------------------------- Functions --------------------------------*/
 
 function init() {
@@ -37,10 +37,34 @@ function init() {
 }
 
 function runGame() {
-    console.log('rungame')
+    // console.log('rungame')
+    updateStates()
+    render()
 }
 
+function render() {
+    boredomStatElement.textContent = state.boredom
+    hungerStatElement.textContent = state.hunger
+    sleepinessStatElement.textContent = state.sleepiness
+}
 
+function updateStates() {
+    Object.keys(state).forEach(key => {
+        state[key] = Math.floor(Math.random() * 3)
+    })
+    console.log(state);
+}
+updateStates();
+
+// function updateStates() {
+//     state.forEach((element, index) => {
+//         for (const iterator of object) {
+//             state.forEach(element => {
+                
+//             });
+//         }
+//     });
+// }
 /*----------------------------- Event Listeners -----------------------------*/
 
 document.addEventListener('DOMContentLoaded', init);
