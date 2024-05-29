@@ -141,3 +141,21 @@ console.log('Exercise 3 Correct Result: ',
         { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 }
     ]
 )
+
+// Array.prototype.find()
+
+// 4. Use Array.prototype.find() to identify the inventor with the first name 'Ada' from an array of inventor objects
+
+// - You have an array of objects, each representing an inventor with various properties including their first name.
+// -  Utilize the Array.prototype.find() method to locate the object for the inventor named 'Ada'.
+// -  Assign the found inventor object to the variable 'inventorNamedAda'
+
+let inventorNamedAda = inventors.find((firstName) => {
+    return firstName.first === 'Ada';
+})
+
+
+
+// Check your return value:
+console.log('Exercise 4 My Result: ', inventorNamedAda)
+console.log('Exercise 4 Correct Result: ', { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 })
