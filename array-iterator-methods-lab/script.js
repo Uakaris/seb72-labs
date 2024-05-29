@@ -243,3 +243,19 @@ let isAdultPresent = devs.some((dev) => {
 console.log('Exercise 6 My Result: ', isAdultPresent)
 console.log('Exercise 6 Correct Result: ', true)
 
+// Array.prototype.every()
+
+// 7. Use Array.prototype.every() to determine if every person in the devs array is 19 years old or older.
+
+// - You have an array of individuals, each with their year of birth represented by the 'year' property.
+// - Use the Array.prototype.every() method to verify if every individual in the array is at least 19 years old.
+// - Store the result (true or false) in the variable 'isEveryone19OrOlder'.
+
+let isEveryone19OrOlder = devs.every((allDevs) => {
+    const currentYear = new Date().getFullYear();
+    return currentYear - allDevs.year >= 19;
+})
+
+// Check your return value:
+console.log('Exercise 7 My Result: ', isEveryone19OrOlder)
+console.log('Exercise 7 Correct Result: ', false)
