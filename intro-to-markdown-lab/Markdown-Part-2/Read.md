@@ -25,7 +25,7 @@ If all goes well, your cat should be in the blanket nest by now!
 
 Once the cat is secured in the nest, you're going to want to pull the blanket over them so that they're fully covered.
 
-> Another hot tip - Make sure to leave their lil heads poking out so they can breath and see their surroudings!
+> Another hot tip - Make sure to leave their lil heads poking out so they can breath and see their surroundings!
 
 Now that your cat is all tucked-in you'll need to stay with them for a bit so they are calm and comfortable.
 
