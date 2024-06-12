@@ -9,5 +9,29 @@
     <%- include('./partials/nav') %>
   <h1>Full Menu</h1>
   <p><%= RESTAURANT.menu %></p>
+  <h2>Mains</h2>
+  <ul>
+    <% RESTAURANT.forEach(item => { %>
+        <% if (item.category === 'mains') { %>
+            <li><%= item.name %>: $<%= item.price %>: <%= item.rating %>: <%= item.details %></li>
+        <% } %>
+    <% }) %>
+  </ul>
+  <h2>Sides</h2>
+  <ul>
+    <% RESTAURANT.forEach(item => { %>
+        <% if (item.category === 'sides') { %>
+            <li><%= item.name %>: $<%= item.price %>: <%= item.rating %>: <%= item.details %></li>
+        <% } %>
+    <% }) %>
+  </ul>
+  <h2>Desserts</h2>
+  <ul>
+    <% RESTAURANT.forEach(item => { %>
+        <% if (item.category === 'desserts') { %>
+            <li><%= item.name %>: $<%= item.price %>: <%= item.rating %>: <%= item.details %></li>
+        <% } %>
+    <% }) %>
+  </ul>
 </body>
 </html>
