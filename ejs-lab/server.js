@@ -65,12 +65,12 @@ app.get('/menu', (req, res) => {
 
 app.get('/menu/:category', (req, res) => {
     const category = req.params.category;
-    const filteredMenu = RESTAURANT.menu.filter(item => item.category === category);
+    const menuItems = RESTAURANT.menu.filter(item => item.category === category);
     const capsCategory = category.charAt(0).toUpperCase() + category.slice(1);
 
     res.render('category.ejs', {
         category: capsCategory,
-        menuItems: filteredMenu
+        menuItems: menuItems
 
     });
 });
