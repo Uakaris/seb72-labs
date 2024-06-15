@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= dog.name %></title>
+</head>
+<body>
+    <a href="/dogs/">Back to all Dogs</a>
+
+    <h1><%= dog.name %></h1>
+    <p>
+        The dog is 
+        <% if (dog.isReadyToTakeHome) { %>
+         <p>This dog is ready to take home!</p>
+        <% } else { %>
+            <p>This dog is not ready to take home just yet</p>
+       <%  } %>
+    </p>
+</body>
+</html>
