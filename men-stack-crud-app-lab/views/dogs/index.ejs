@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/view-dogs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <title>All dogs</title>
 </head>
 <body>
-    <a href="/dogs/new">Add a new breed</a>
     <h1>All Dogs</h1>
     <ul>
         <% dogs.forEach((dog) => { %>
-           <li>
+           <li>🐶
             <a href="/dogs/<%= dog._id %>"> <%= dog.name %> </a>
             </li> 
         <% }) %>
     </ul>
+    <button><a href="/dogs/new">Add a new breed</a></button>
 </body>
 </html>

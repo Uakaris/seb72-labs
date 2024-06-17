@@ -10,12 +10,15 @@
 
     <h1><%= dog.name %></h1>
     <p>
-        The dog is 
         <% if (dog.isReadyToTakeHome) { %>
          <p>This dog is ready to take home!</p>
         <% } else { %>
             <p>This dog is not ready to take home just yet</p>
        <%  } %>
     </p>
+    <a href="/dogs/<%= dog._id %>/edit">Edit<%= dog.name %></a>
+    <form action="/dogs/<%- dog._id %>?_method=DELETE" method="post">
+        <button>Delete <%= dog.name %></button>
+    </form>
 </body>
 </html>

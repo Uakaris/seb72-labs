@@ -6,21 +6,22 @@
     <link rel="stylesheet" href="/new.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-    <title>Make your perfect breed of dog</title>
+    <title>Edit Dog</title>
 </head>
 <body>
-    <h1>Create your perfect dog</h1>
-    <form action="/dogs/" method="post">
+    <h1>Edit Dog</h1>
+    <form action="/dogs/<%= dog._id %>?_method=PUT" method="post">
         <label>
             Breed:
-            <input type="text" name="name">
+            <!-- <input type="text" name="name"> -->
+             <input name="name" value="<%= dog.name %>">
         </label>
 
         <label>
             Ready to take home?
-            <input type="checkbox" name="isReadyToTakeHome">
+            <input type="checkbox" name="isReadyToTakeHome" <%= dog.isReadyToTakeHome && 'checked' %>>
         </label>
-        <button type="submit">Create Dog</button>
+        <button type="submit">Update Dog</button>
     </form>
     <div  id="nav">
     <button><a href="/dogs/">Back to Dogs</a></button>
