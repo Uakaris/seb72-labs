@@ -9,14 +9,11 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    /* overflow: hidden; */
-    /* background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);  */
+    overflow: hidden;
     background: #7A9E9F;
 }
 
 h1 {
-    /* padding-top: 175px; */
     padding-bottom: 30px;
     font-family: "Luckiest Guy", cursive;
     font-weight: 400;
