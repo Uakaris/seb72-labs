@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/show.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <title><%= dog.name %></title>
 </head>
 <body>
-    <a href="/dogs/">Back to all Dogs</a>
-
     <h1><%= dog.name %></h1>
+    <h3><a href="/dogs/">Back to all Dogs</a></h3>
     <p>
         <% if (dog.isReadyToTakeHome) { %>
          <p>This dog is ready to take home!</p>
         <% } else { %>
             <p>This dog is not ready to take home just yet</p>
        <%  } %>
+       <img src="<%= dog.image %>" alt="<%= dog.name %>">
     </p>
-    <a href="/dogs/<%= dog._id %>/edit">Edit<%= dog.name %></a>
+    <a href="/dogs/<%= dog._id %>/edit" class="editDog">Edit <%= dog.name %></a>
     <form action="/dogs/<%- dog._id %>?_method=DELETE" method="post">
         <button>Delete <%= dog.name %></button>
     </form>

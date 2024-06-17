@@ -7,6 +7,9 @@ const mongoose = require('mongoose');
 const dogSchema = new mongoose.Schema({
     name: String,
     isReadyToTakeHome: Boolean,
+    image: {
+        type: String
+    },
 });
 
 const Dog = mongoose.model('Dog', dogSchema);

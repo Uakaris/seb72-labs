@@ -24,39 +24,45 @@ h1 {
 }
 
 h3 {
-    font-family: "Luckiest Guy", cursive;
-    font-weight: 400;
-    font-style: normal;
-}
-
-ul {
-    list-style: none;
-    padding-left: 0;
-    padding-top: 25px;
     padding-bottom: 25px;
+    color: #EEF5DB;
+}
+
+p {
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
+    font-style: normal;
+    padding-bottom: 15px;
+    color: #EEF5DB;
+}
+
+a {
     font-family: "Luckiest Guy", cursive;
     font-weight: 400;
     font-style: normal;
 }
+a.editDog {
+    padding-top: 25px;
+}
 
-li {
-    font-size: 20px;
+form {
+    padding-top: 25px;
 }
 
 button {
-    background-color: #4F6367;
     font-family: "Luckiest Guy", cursive;
     font-weight: 400;
     font-style: normal;
     padding: 15px;
+    background-color: #4F6367;
     border-radius: 10%;
+    color: #EEF5DB;
 }
 
 button:hover {
     cursor: pointer;
 }
 
-a.no-underline {
-    text-decoration: none;
-    color: #EEF5DB;
+img {
+    border-radius: 10%;
 }
