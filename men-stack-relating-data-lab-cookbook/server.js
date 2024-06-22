@@ -45,6 +45,7 @@ app.get('/', (req, res) => {
 app.use('/auth', authController);
 app.use('/socials', socialsController);
 app.use('/users/:userId/foods', ensureLoggedIn, foodController);
+app.use(express.static('public'));
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
