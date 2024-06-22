@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/340b1610fa.js" crossorigin="anonymous"></script>
     <title>My Pantry</title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Pantry</h1>
-    <a href="/users/<%= user._id %>/foods/new">Add a new item</a>
+    <a href="/users/<%= user._id %>/foods/new" id="addNew" <i class="fa-solid fa-plus fa-fade fa-2xl" style="color: #000000;"></i></a>
     <ul>
         <% pantry.forEach((food) => { %>
          <li>
-            <a href="/users/<%= user._id %>/foods/<%= food._id %>"><%= food.food %></a>
-            <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit">Edit</a>
+            <a href="/users/<%= user._id %>/foods/<%= food._id %>" class =foodItems><%= food.food %></a>
+            <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit" <i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a>
             <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" method="post">
-                <button>Delete</button>
+                <button id="delete"><i class="fa-solid fa-trash" style="color: #000000;"></i></button>
             </form>
          </li>
         <% }) %>

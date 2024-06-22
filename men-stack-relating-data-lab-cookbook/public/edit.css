@@ -24,8 +24,8 @@ h1 {
     font-style: normal;
 }
 
-img {
-    height: 300px;
-    border-radius: 10%;
-    box-shadow: 0 0 25px 0 grey;
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

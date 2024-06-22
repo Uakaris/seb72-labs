@@ -9,7 +9,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: bisque;
     font-family: "Spectral", serif;
     font-weight: 300;
@@ -24,8 +24,24 @@ h1 {
     font-style: normal;
 }
 
-img {
-    height: 300px;
-    border-radius: 10%;
-    box-shadow: 0 0 25px 0 grey;
+ul li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+#addNew {
+    text-decoration: none;
+    padding-bottom: 30px;
+}
+
+#delete {
+    float: right;
+}
+
+.foodItems {
+    color: black;
+    text-decoration: none;
 }
