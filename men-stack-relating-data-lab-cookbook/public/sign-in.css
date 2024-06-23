@@ -24,8 +24,23 @@ h1 {
     font-style: normal;
 }
 
-form {
+.username {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.password {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.signIn {
+    font-family: "Spectral", serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    background-color: burlywood;
+    padding-inline: 71.5px;
 }

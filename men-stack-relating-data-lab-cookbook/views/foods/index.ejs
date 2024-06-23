@@ -16,7 +16,8 @@
     <ul>
         <% pantry.forEach((food) => { %>
          <li>
-            <a href="/users/<%= user._id %>/foods/<%= food._id %>" class =foodItems><%= food.food %></a>
+            <%= food.food %>
+            <!-- <a href="/users/<%= user._id %>/foods/<%= food._id %>" class =foodItems><%= food.food %></a> -->
             <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit" <i class="fa-solid fa-pen-to-square" style="color: #000000;"></i></a>
             <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" method="post">
                 <button id="delete"><i class="fa-solid fa-trash" style="color: #000000;"></i></button>
