@@ -1,17 +1,19 @@
 import { useState } from 'react';
+import './App.css';
 
 const ZombieFighter = (props) => {
-  const { name, price, strength, agility, img } = props;
+  const { id, name, price, strength, agility, img, handleAddFighter } = props;
 
   return (
     <div>
       <ul>
         <li>
           <h3>{ name }</h3>
-          <h4>{ price }</h4>
-          <h4>{ strength }</h4>
-          <h4>{ agility }</h4>
+          <h4>Price: { price }</h4>
+          <h4>Strength: { strength }</h4>
+          <h4>Agility: { agility }</h4>
           <img src={ img }></img>
+          <button onClick={() => handleAddFighter({ id, name, price, strength, agility })}>Add</button>
         </li>
       </ul>
     </div>
@@ -19,9 +21,11 @@ const ZombieFighter = (props) => {
 }
 
 const App = () => {
-  const [team] = useState([]);
-  const [money] = useState(100);
-  const [zombieFighters] = useState(
+  const [team, setTeam] = useState([]);
+  const [money, setMoney] = useState(100);
+  const [totalStrength, setTotalStrength] = useState(0);
+  const [totalAgility, setTotalAgility] = useState(0);
+  const [zombieFighters, setZombieFighters] = useState(
     [
       {
         name: 'Survivor',
@@ -96,17 +100,59 @@ const App = () => {
     ]    
   )
 
+  const handleAddFighter = (fighter) => {
+    if (money >= fighter.price) {
+      setTeam([...team, fighter]);
+      setMoney(money - fighter.price);
+
+      const handleStrength = team.reduce((accumulator, currFighter) => accumulator + currFighter.strength, 0) + fighter.strength;
+      setTotalStrength(handleStrength);
+
+      const handleAgility = team.reduce((accumulator, currFighter) => accumulator + currFighter.agility, 0) + fighter.agility;
+      setTotalAgility(handleAgility);
+
+    } else {
+      console.log("Not enough money");
+    }
+  }
+
   return (
     <>
     <h1>Zombie Fighters</h1>
-    <div>
-      {zombieFighters.map((zombieFighter) => (
+    
+       <h2>Money: { money }</h2>
+       <h2>Team Strength: { totalStrength }</h2>
+       <h2>Team Agility: { totalAgility }</h2>
+
+       <h2>Team</h2>
+      { team.length === 0 ? (
+        <p>Pick some team members!</p>
+      ) : (
+        <section>
+          <ul>
+            {team.map((fighter, index) => (
+              <li key={fighter.id}>
+                <h3>{fighter.name}</h3>
+                <img src={fighter.img} alt={fighter.name}></img>
+                <h4>Price: {fighter.price}</h4>
+                <h4>Strength: {fighter.strength}</h4>
+                <h4>Agility: {fighter.agility}</h4>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      
+      <section>
+      {zombieFighters.map((zombieFighter, index) => (
         <ZombieFighter
         key={zombieFighter.id}
+        id={zombieFighter.id}
         {...zombieFighter}
+        handleAddFighter={ handleAddFighter }
         />
       ))}
-    </div>
+      </section>
     </>
   );
 }
