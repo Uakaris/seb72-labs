@@ -116,6 +116,16 @@ const App = () => {
     }
   }
 
+  const handleRemoveFighter = (fighterName) => {
+    const updatedTeam = team.filter((fighter) => fighter.name !== fighterName);
+    const removedFighter = team.find((fighter) => fighter.name === fighterName);
+
+    setTeam(updatedTeam);
+    setMoney(money + removedFighter.price);
+    setTotalStrength(updatedTeam.reduce((accumulator, currFighter) => accumulator + currFighter.strength, 0));
+    setTotalAgility(updatedTeam.reduce((accumulator, currFighter) => accumulator + currFighter.agility, 0));
+  }
+
   return (
     <>
     <h1>Zombie Fighters</h1>
@@ -137,6 +147,7 @@ const App = () => {
                 <h4>Price: {fighter.price}</h4>
                 <h4>Strength: {fighter.strength}</h4>
                 <h4>Agility: {fighter.agility}</h4>
+                <button onClick={() => handleRemoveFighter(fighter.name)}>Remove</button>
               </li>
             ))}
           </ul>
