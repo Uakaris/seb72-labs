@@ -23,16 +23,30 @@ export const availableIngredients = [
 
 const App = () => {
 
-  const [stack, setStack] = useState([{ name: 'Kaiser Bun', color: 'saddlebrown' }]);
+  const [stack, setStack] = useState([]);
   
-  
+  const addToBurger = (ingrediant) => {
+    setStack([...stack, ingrediant]);
+  }
+
+  const removeFromBurger = (index) => {
+    const newStack = [...stack];
+    newStack.splice(index, 1);
+    setStack(newStack);
+  };
 
   return (
     <main>
       <h1>Burger Stacker</h1>
       <section>
-        <IngredientList availableIngredients={ availableIngredients } setStack={ setStack } stack={stack } />
-        <BurgerStack stack={ stack } test={'hello'} />
+        <IngredientList
+          availableIngredients={ availableIngredients }
+          setStack={ setStack }
+          stack={ stack }
+          addToBurger={ addToBurger } 
+        />
+        <BurgerStack stack={ stack } removeFromBurger={removeFromBurger} 
+        />
       </section>
     </main>
   );
