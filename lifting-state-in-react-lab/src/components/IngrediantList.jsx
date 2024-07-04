@@ -1,5 +1,6 @@
 import { availableIngredients } from "../App.jsx";
 
+
 const IngredientList = ({ availableIngredients, addToBurger }) => {
     return (
       <ul>
