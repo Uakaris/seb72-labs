@@ -4,8 +4,9 @@ import {Routes, Route } from 'react-router-dom';
 import MailboxList from './MailboxList';
 import NavBar from './NavBar';
 import MailboxDetails from './MailboxDetails';
-import MailboxForm from './MailboxForm'
-import '../index.css'
+import MailboxForm from './MailboxForm';
+import '../index.css';
+import '../App.css';
 
 const App = () => {
   const [mailboxes, setMailboxes] = useState([]);
