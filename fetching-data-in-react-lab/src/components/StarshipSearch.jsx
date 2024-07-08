@@ -15,7 +15,6 @@ const StarshipSearch = (props) => {
 
     return (
         <section>
-            <h2>Search</h2>
             <form onSubmit={ _handleSubmit }>
                 <label>
                     Search Term:
