@@ -5,7 +5,7 @@ const StarshipSearch = (props) => {
 
     const _handleSubmit = (event) => {
         event.preventDefault();
-        props.onSubmit(starship);
+        props.searchStarships(starship);
         setStarship('');
     }
 
