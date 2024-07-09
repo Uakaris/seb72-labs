@@ -22,7 +22,7 @@ const StarshipInfo = () => {
     }
 
     return (
-        <main>
+        <main className='background'>
             <h1>Star Wars API</h1>
             <StarshipSearch searchStarships={ searchStarships } />
             <p>Number of results: { starships.length }</p>
