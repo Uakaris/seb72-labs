@@ -5,7 +5,7 @@ const searchForStarship = async (starship) => {
         const queryString = starship ? "/?search=" + starship : '';
         const response = await fetch(BASE_URL + queryString);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         return data;
     } catch (error) {
         console.log(error);
