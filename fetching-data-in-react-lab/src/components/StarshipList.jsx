@@ -1,4 +1,4 @@
-import StarshipCard from '../components/StarshipCard';
+import StarshipCard from './StarshipCard';
 
 const StarshipList = (props) => {
     const starshipListItems = props.starships.map((starship) => (
