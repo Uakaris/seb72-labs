@@ -102,20 +102,56 @@ print_greeting()
 # - Convert the string input to an integer using `int()`.
 # - Apply conditional logic to perform the correct age calculation based on the dog's age.
 
-def calculate_dog_years():
+# def calculate_dog_years():
+#     # Your control flow logic goes here
+#     dog_age = int(input("Enter a dog's age: "))
+
+#     if dog_age <= 0:
+#         print("Dog age must be greater than 0")
+#     elif dog_age == 1:
+#         dog_years = 10
+#     elif dog_age == 2:
+#         dog_years == 20
+#     else:
+#         dog_years = 20 + (dog_age - 2) * 7
+#     print(f"The dog's age in dog years is {dog_years}.")
+
+
+# # Call the function
+# calculate_dog_years()
+
+# Exercise 4: Weather Advice
+#
+# Write a Python script named `weather_advice` that provides clothing advice based on weather conditions.
+#
+# Requirements:
+# - The script should prompt the user to enter if it is cold (yes/no).
+# - Then, ask if it is raining (yes/no).
+# - Use logical operators to determine clothing advice:
+#   - If it is cold AND raining, print "Wear a waterproof coat."
+#   - If it is cold BUT NOT raining, print "Wear a warm coat."
+#   - If it is NOT cold but raining, print "Carry an umbrella."
+#   - If it is NOT cold AND NOT raining, print "Wear light clothing."
+#
+# Hints:
+# - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
+
+def weather_advice():
     # Your control flow logic goes here
-    dog_age = int(input("Enter a dog's age: "))
+    cold_input = input("Is it cold? (yes/no): ")
 
-    if dog_age <= 0:
-        print("Dog age must be greater than 0")
-    elif dog_age == 1:
-        dog_years = 10
-    elif dog_age == 2:
-        dog_years == 20
-    else:
-        dog_years = 20 + (dog_age - 2) * 7
-    print(f"The dog's age in dog years is {dog_years}.")
+    rain_input = input("Is it raining? (yes/no): ")
 
+    if cold_input == "yes" and rain_input == "yes":
+        print("Wear something warm with a waterproof coat.")
+    
+    if cold_input == "yes" and rain_input == "no":
+        print("Wear something warm.")
+    
+    if cold_input == "no" and rain_input == "yes":
+        print("Carry an umbrella.")
 
+    if cold_input == "no" and rain_input == "no":
+        print("Wear light clothing")
 # Call the function
-calculate_dog_years()
+weather_advice()
