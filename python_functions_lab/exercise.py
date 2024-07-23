@@ -12,8 +12,8 @@ def calculate_area_triangle(base, height):
     return base * height / 2
 
 
-# print('Exercise 1:', calculate_area_triangle(10, 5))
-# print('Exercise 1:', calculate_area_triangle(7, 3))
+print('Exercise 1:', calculate_area_triangle(10, 5))
+print('Exercise 1:', calculate_area_triangle(7, 3))
 
 # Exercise 2: Calculate Simple Interest
 #
@@ -29,8 +29,8 @@ def simple_interest(principle, rate, time):
     return principle * rate * time / 100
 
 
-# print('Exercise 2:', simple_interest(1000, 5, 2))
-# print('Exercise 2:', simple_interest(1500, 3.5, 5))
+print('Exercise 2:', simple_interest(1000, 5, 2))
+print('Exercise 2:', simple_interest(1500, 3.5, 5))
 
 # Exercise 3: Apply a Discount
 #
@@ -48,8 +48,8 @@ def apply_discount(price, discount_percentage):
     return discount_price
 
 
-# print('Exercise 3:', apply_discount(100, 25))
-# print('Exercise 3:', apply_discount(80, 10))
+print('Exercise 3:', apply_discount(100, 25))
+print('Exercise 3:', apply_discount(80, 10))
 
 # Exercise 4: Convert Temperature
 #
@@ -73,8 +73,8 @@ def convert_temperature(temp, unit):
         print("temp must be in Fahrenheit (F) or Celsius (C)")
 
 
-# print('Exercise 4: Convert 0°C to Fahrenheit:', convert_temperature(0, 'C'))
-# print('Exercise 4: Convert 32°F to Celsius:', convert_temperature(32, 'F'))
+print('Exercise 4: Convert 0°C to Fahrenheit:', convert_temperature(0, 'C'))
+print('Exercise 4: Convert 32°F to Celsius:', convert_temperature(32, 'F'))
 
 # Exercise 5: Sum to N
 #
@@ -89,8 +89,8 @@ def sum_to(n):
     return n * (n + 1)/2
 
 
-# print('Exercise 5:', sum_to(6))
-# print('Exercise 5:', sum_to(10))
+print('Exercise 5:', sum_to(6))
+print('Exercise 5:', sum_to(10))
 
 # Exercise 6: Find the Largest Number
 #
@@ -105,8 +105,8 @@ def largest(a, b, c):
     list = [a, b, c]
     return max(list)
 
-# print('Exercise 6:', largest(1, 2, 3))
-# print('Exercise 6:', largest(10, 4, 2))
+print('Exercise 6:', largest(1, 2, 3))
+print('Exercise 6:', largest(10, 4, 2))
 
 # Exercise 7: Calculate a Tip
 #
@@ -122,9 +122,9 @@ def calculate_tip(bill, tip_perc):
     return tip_amount
 
 
-# print('Exercise 7:', calculate_tip(50, 20))
-# print('Exercise 7:', calculate_tip(100, 20))
-# print('Exercise 7:', calculate_tip(650, 25))
+print('Exercise 7:', calculate_tip(50, 20))
+print('Exercise 7:', calculate_tip(100, 20))
+print('Exercise 7:', calculate_tip(650, 25))
 
 # Exercise 8: Calculate Product of Numbers
 #
@@ -136,7 +136,14 @@ def calculate_tip(bill, tip_perc):
 # product(2, 5, 5) should return 50.
 #
 # Define the function and call it with different sets of numbers to test.
-
+def product(*args):
+    result = 1
+    for item in args:
+        result *= item
+    return result
 
 
 print('Exercise 8:', product(2, 5, 5))
+print('Exercise 8:', product(1, 10, 20))
+print('Exercise 8:', product(167543, 888875, 134098567))
+print('Exercise 8:', product(1, 1, 1))
