@@ -42,7 +42,11 @@ def simple_interest(principle, rate, time):
 # apply_discount(80, 10) should return 72.
 #
 # Define your function and call it to display the discounted price.
-
+def apply_discount(price, discount_percentage):
+    discount_amount = price * (discount_percentage / 100)
+    discount_price = price - discount_amount
+    return discount_price
 
 
 print('Exercise 3:', apply_discount(100, 25))
+print('Exercise 3:', apply_discount(80, 10))
