@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/recipes/recipe-detail.css' %}" />
+{% endblock %} {% block content %}
+<section class="recipe-container">
+    <div class="recipe-img"></div>
+    <div class="recipe-details">
+        <h1>{{ recipe.name }}</h1>
+        <p>{{ recipe.ingrediants }}</p>
+        <p>{{ recipe.method }}</p>
+        <p>{{ recipe.source }}</p>
+
+        <div class="recipe-actions">
+            <a href="{% url 'recipe-update' recipe.id %}" class="btn warn"
+                >Edit</a
+            >
+            <a href="{% url 'recipe-delete' recipe.id %}" class="btn danger"
+                >Delete</a
+            >
+        </div>
+    </div>
+</section>
+{% endblock %}
