@@ -1,4 +1,4 @@
-.cat-container {
+.recipe-container {
     padding: 35px 30px;
     display: flex;
     flex-direction: column;
@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-.cat-img {
+.recipe-img {
     width: 75%;
     max-width: 350px;
 }
@@ -16,11 +16,11 @@
     border-radius: var(--card-border-radius);
 }
 
-.cat-details {
+.recipe-details {
     width: 98%;
 }
 
-.cat-actions {
+.recipe-actions {
     margin-top: 20px;
 }
 

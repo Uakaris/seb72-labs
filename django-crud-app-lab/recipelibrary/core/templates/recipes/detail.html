@@ -19,4 +19,46 @@
         </div>
     </div>
 </section>
+<div class="feedings-toy-container">
+    <section class="feedings">
+        <div class="subsection-title">
+            <h2>Category</h2>
+        </div>
+        <h3>Add a Category</h3>
+        <form
+            action="{% url 'add-category' recipe.id %}"
+            method="post"
+            class="subsection-content"
+            autocomplete="off"
+        >
+            {% csrf_token %} {{ category_form.as_p }}
+            <button class="btn submit">Add Category</button>
+        </form>
+        <h3>Previous Category Updates</h3>
+        {% if recipe.category_set.all.count %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Cuisine</th>
+                    <th>Dietary</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category in recipe.category_set.all %}
+                <tr>
+                    <td>{{ category.cuisine }}</td>
+                    <td>{{ category.get_dietary_display }}</td>
+                    <td>{{ category.get_type_display }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="subsection-content">
+            <p>No info added for {{recipe.name}} yet!</p>
+        </div>
+        {% endif %}
+    </section>
+</div>
 {% endblock %}

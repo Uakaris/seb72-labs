@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+from .forms import CategoryForm
+
 from .models import Recipe
 
 def home(request):
@@ -14,7 +17,11 @@ def recipe_index(request):
 
 def recipe_detail(request, recipe_id):
     recipe = Recipe.objects.get(id=recipe_id)
-    return render(request, 'recipes/detail.html', {'recipe': recipe})
+    category_form = CategoryForm()
+    return render(request, 'recipes/detail.html', {
+        'recipe': recipe,
+        'category_form': category_form
+        })
 
 class RecipeCreate(CreateView):
     model = Recipe
@@ -28,3 +35,11 @@ class RecipeUpdate(UpdateView):
 class RecipeDelete(DeleteView):
     model = Recipe
     success_url = '/recipes/'
+
+def add_category(request, recipe_id):
+    form = CategoryForm(request.POST)
+    if form.is_valid():
+        category = form.save(commit=False)
+        category.recipe_id = recipe_id
+        category.save()
+    return redirect('recipe-detail', recipe_id=recipe_id)
