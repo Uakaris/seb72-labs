@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from .forms import CategoryForm
+from .forms import logForm
 
 from .models import Recipe
 
@@ -17,10 +17,10 @@ def recipe_index(request):
 
 def recipe_detail(request, recipe_id):
     recipe = Recipe.objects.get(id=recipe_id)
-    category_form = CategoryForm()
+    log_form = logForm()
     return render(request, 'recipes/detail.html', {
         'recipe': recipe,
-        'category_form': category_form
+        'log_form': log_form
         })
 
 class RecipeCreate(CreateView):
@@ -36,10 +36,10 @@ class RecipeDelete(DeleteView):
     model = Recipe
     success_url = '/recipes/'
 
-def add_category(request, recipe_id):
-    form = CategoryForm(request.POST)
+def add_log(request, recipe_id):
+    form = logForm(request.POST)
     if form.is_valid():
-        category = form.save(commit=False)
-        category.recipe_id = recipe_id
-        category.save()
+        log = form.save(commit=False)
+        log.recipe_id = recipe_id
+        log.save()
     return redirect('recipe-detail', recipe_id=recipe_id)

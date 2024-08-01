@@ -13,35 +13,25 @@ class Recipe(models.Model):
     def get_absolute_url(self):
         return reverse('recipe-detail', kwargs={'recipe_id': self.id})
 
-DIETS = (
-    ('M', 'Meat'),
-    ('V', 'Vegetarian'),
-    ('VG', 'Vegan'),
-    ('P', 'Pescatarian'),
-    ('GF', 'Gluten Free'),
+RATINGS = (
+    (1, '⭐️'),
+    (2, '⭐️⭐️'),
+    (3, '⭐️⭐️⭐️'),
+    (4, '⭐️⭐️⭐️⭐️'),
+    (5, '⭐️⭐️⭐️⭐️⭐️')
 )
 
-TYPES = (
-    ('B', 'Breakfast'),
-    ('L', 'Lunch'),
-    ('D', 'Dinner'),
-    ('S', 'Snack'),
-)
-
-class Category(models.Model):
-    cuisine = models.CharField(max_length=50)
-    dietary = models.CharField(
+class log(models.Model):
+    date = models.DateField('Meal Date')
+    notes = models.TextField(max_length=256)
+    rating = models.IntegerChoices(
         max_length=5,
-        choices=DIETS,
-        default=DIETS[0][0],
+        choices=RATINGS,
+        default=RATINGS[0][0]
     )
-    type = models.CharField(
-        max_length=1,
-        choices=TYPES,
-        default=TYPES[0][0]
-    )
+    
 
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.cuisine} dish that is best suited for {self.get_type_display()}. Dietary category: {self.get_dietary_display()}"
+        return f"{self.get_rating_display()} meal made on {self.date}. See notes: {self.notes}."

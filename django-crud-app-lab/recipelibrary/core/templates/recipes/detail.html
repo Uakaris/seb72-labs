@@ -22,20 +22,20 @@
 <div class="feedings-toy-container">
     <section class="feedings">
         <div class="subsection-title">
-            <h2>Category</h2>
+            <h2>Meal Log</h2>
         </div>
-        <h3>Add a Category</h3>
+        <h3>Add an entry</h3>
         <form
-            action="{% url 'add-category' recipe.id %}"
+            action="{% url 'add-log' recipe.id %}"
             method="post"
             class="subsection-content"
             autocomplete="off"
         >
-            {% csrf_token %} {{ category_form.as_p }}
-            <button class="btn submit">Add Category</button>
+            {% csrf_token %} {{ log_form.as_p }}
+            <button class="btn submit">Add Entry</button>
         </form>
-        <h3>Previous Category Updates</h3>
-        {% if recipe.category_set.all.count %}
+        <h3>Previous Entries</h3>
+        {% if recipe.log_set.all.count %}
         <table>
             <thead>
                 <tr>
@@ -45,7 +45,8 @@
                 </tr>
             </thead>
             <tbody>
-                {% for category in recipe.category_set.all %}
+                {% for log in recipe.log_set.all %}
+                <a href="{%  %}"></a>
                 <tr>
                     <td>{{ category.cuisine }}</td>
                     <td>{{ category.get_dietary_display }}</td>
@@ -56,7 +57,7 @@
         </table>
         {% else %}
         <div class="subsection-content">
-            <p>No info added for {{recipe.name}} yet!</p>
+            <p>No entries have been added for {{recipe.name}} yet!</p>
         </div>
         {% endif %}
     </section>
